@@ -49954,11 +49954,12 @@ if (btnSlugger) {
 }
 
 const confirmationOverlay = document.querySelector('#confirmation-overlay');
+const confirmationForm = confirmationOverlay.querySelector('form');
+
 if (confirmationOverlay) {
     document.querySelectorAll('.btn-delete').forEach(button => {
         button.addEventListener('click', function() {
             const id = this.closest('tr').dataset.id;
-            const confirmationForm = confirmationOverlay.querySelector('form');
             const strAction = confirmationForm.dataset.base.replace('*****', id);
             confirmationForm.action = strAction;
             confirmationOverlay.classList.remove('d-none');
