@@ -49938,3 +49938,17 @@ module.exports = __webpack_require__(/*! C:\Users\Giuseppe Mirizzi\Documents\Boo
 /***/ })
 
 /******/ });
+
+var btnSlugger = document.querySelector('#btn-slugger');
+
+if (btnSlugger) {
+  btnSlugger.addEventListener('click', function () {
+    var eleSlug = document.querySelector('#slug');
+    var title = document.querySelector('#title').value;
+    Axios.post('/admin/slugger', {
+      originalStr: title
+    }).then(function (response) {
+      eleSlug.value = response.data.slug;
+    });
+  });
+}
