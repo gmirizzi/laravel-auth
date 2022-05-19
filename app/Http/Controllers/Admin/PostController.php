@@ -14,8 +14,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $posts = Post::paginate(50);
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
